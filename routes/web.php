@@ -16,3 +16,11 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@home');
+
+Route::get('/categorias', 'CategoriasController@list');
+Route::get('/marcas', 'MarcasController@list');
+Route::get('/productos', 'ProductosController@list');
+
+Route::get('/producto/{id}', 'ProductosController@buscar');
+Route::get('/categoria/{id}', 'CategoriasController@buscar');
+Route::get('/marca/{id}', 'MarcasController@buscar');
