@@ -24,3 +24,6 @@ Route::get('/productos', 'ProductosController@list');
 Route::get('/producto/{id}', 'ProductosController@buscar');
 Route::get('/categoria/{id}', 'CategoriasController@buscar');
 Route::get('/marca/{id}', 'MarcasController@buscar');
+
+Route::get('/productos/add','ProductosController@add')->middleware("auth");
+Route::post('/productos/add','ProductosController@agregar')->middleware("auth");

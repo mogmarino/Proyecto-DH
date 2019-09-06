@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/layout.css">
+
     @yield('css')
     @yield('js')
 
@@ -36,20 +38,33 @@
               Marcas
             </a>
           </li>
+        @if (Auth::check())
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/productos/add/">
+              Agregar Producto
+            </a>
+          </li>
+        @endif
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Usuarios
+              @if (Auth::check())
+                {{-- <img src="/storage/{{Auth::user()->avatar}}" alt="" id="perfil"> --}}
+                {{Auth::user()->name}}
+              @else
+                Usuarios
+              @endif
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               @if (Auth::check())
-                <li>Hola {{Auth::user()->name}}</li>
-                <li>
+
+
                   <a class="dropdown-item" href="{{ route('logout') }}"
                      onclick="event.preventDefault();
                                    document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
                   </a>
-                </li>
+
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                   </form>
@@ -59,6 +74,15 @@
               @endif
             </div>
           </li>
+
+          @if (Auth::check())
+          <li class="nav-item  text-white pt-2">
+           {{-- Bienvenido {{Auth::user()->name}} --}}
+             <img src="/storage/{{Auth::user()->avatar}}" alt="" id="perfil">
+          </li>
+          @endif
+
+
         </ul>
           </div>
         </nav>
