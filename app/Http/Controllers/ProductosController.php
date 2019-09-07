@@ -79,4 +79,54 @@ class ProductosController extends Controller
     return redirect("/producto/". $nuevoProducto->id);
 
   }
+
+  public function edit($id){
+
+    $producto = Producto::find($id);
+    $categorias = Categoria::all();
+    $marcas = Marca::all();
+
+    //dd("hola llegue a la funcion editar");
+
+    return view('productoEdit',compact('producto','categorias','marcas'));
+  }
+
+  public function update(Request $form){
+
+  $id = $form["id"];
+
+  //dd($id);
+
+    $producto = Producto::find($id);
+
+
+    $ruta = $form->file("avatar")->store("public");
+
+    $fileName = basename($ruta);
+
+    $producto->nombre = $form["nombre"];
+    $producto->precio = $form["precio"];
+    $producto->stock = $form["stock"];
+    $producto->ingreso = $form["ingreso"];
+    $producto->categoria_id = $form["categoria"];
+    $producto->avatar = $fileName;
+
+    $producto->save();
+
+    return redirect("/producto/$producto->id");
+
+  }
+
+  public function delete(Request $form){
+
+
+    $producto = Producto::find($form["id"]);
+
+    // dd($producto);
+
+    $producto->delete();
+
+    return redirect('/productos');
+
+  }
 }

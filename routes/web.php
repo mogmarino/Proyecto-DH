@@ -27,3 +27,8 @@ Route::get('/marca/{id}', 'MarcasController@buscar');
 
 Route::get('/productos/add','ProductosController@add')->middleware("auth");
 Route::post('/productos/add','ProductosController@agregar')->middleware("auth");
+
+Route::get('/productos/{id}/edit','ProductosController@edit')->middleware("auth");
+Route::put('/productos/{id}','ProductosController@update')->middleware("auth");
+
+Route::delete('/deleteProducto', 'ProductosController@delete')->middleware("auth");
