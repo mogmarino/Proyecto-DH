@@ -7,6 +7,8 @@ use App\Producto;
 use App\Marca;
 use App\Categoria;
 use App\ProductoMarca;
+use App\ProductoCarrito;
+
 
 
 
@@ -119,12 +121,27 @@ class ProductosController extends Controller
 
   public function delete(Request $form){
 
+    $id = $form["id"];
 
-    $producto = Producto::find($form["id"]);
+    $prodMarc = ProductoMarca::where('producto_id','like',$id)->get();
+    $prodCarr = ProductoCarrito::where('producto_id','like',$id)->get();
 
-    // dd($producto);
+    // dd($prodMarc);
+    // dd($prodCarr);
 
-    $producto->delete();
+
+    // var_dump($id);
+    foreach ($prodMarc as $registro) {
+      $registro->delete();
+    }
+
+    foreach ($prodCarr as $registro) {
+      $registro->delete();
+    }
+
+      $producto = Producto::find($id);
+      $producto->delete();
+
 
     return redirect('/productos');
 
