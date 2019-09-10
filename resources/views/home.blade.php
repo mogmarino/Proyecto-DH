@@ -13,21 +13,25 @@
     <div class="carousel-item active ">
       <img src="/img/productos.jpeg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
+        <a href="/productos">
           <button class="btn btn-primary btn-lg">Productos</button>
+        </a>
       </div>
     </div>
     <div class="carousel-item">
       <img src="/img/gato.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block text-secondary">
-
+        <a href="/categorias">
           <button class="btn btn-primary btn-lg">Categorias</button>
+        </a>
       </div>
     </div>
     <div class="carousel-item">
       <img src="/img/marcas.jpg" class="d-block w-100" alt="...">
       <div class="carousel-caption d-none d-md-block">
-
+        <a href="/marcas">
           <button class="btn btn-primary btn-lg">Marcas</button>
+        </a>
       </div>
     </div>
     <div class="carousel-item">

@@ -80,10 +80,17 @@
            {{-- Bienvenido {{Auth::user()->name}} --}}
              <img src="/storage/{{Auth::user()->avatar}}" alt="" id="perfil">
           </li>
+
           @endif
 
 
         </ul>
+        <div class="carrito">
+          <a href="#" class="text-white">
+            Carrito
+            <i class="fas fa-cart-plus"></i>
+          </a>
+        </div>
           </div>
         </nav>
       </header>
