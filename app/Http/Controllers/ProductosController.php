@@ -20,8 +20,12 @@ class ProductosController extends Controller
   }
 
   public function buscar($id){
+
     $producto = Producto::find($id);
-    return view('producto', compact('producto'));
+    $nombre = $producto->avatar;
+    $ext = pathinfo($nombre,PATHINFO_EXTENSION);
+
+    return view('producto', compact('producto','ext'));
   }
 
   public function add(){

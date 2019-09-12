@@ -85,12 +85,16 @@
 
 
         </ul>
-        <div class="carrito">
-          <a href="#" class="text-white">
-            Carrito
-            <i class="fas fa-cart-plus"></i>
-          </a>
-        </div>
+        @if (Auth::check())
+          <div class="carrito">
+            <a href="/carritos" class="text-white">
+              Carrito
+              <i class="fas fa-cart-plus"></i>
+            </a>
+          </div>
+
+        @endif
+
           </div>
         </nav>
       </header>

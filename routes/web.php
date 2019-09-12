@@ -20,6 +20,8 @@ Route::get('/', 'HomeController@home');
 Route::get('/categorias', 'CategoriasController@list');
 Route::get('/marcas', 'MarcasController@list');
 Route::get('/productos', 'ProductosController@list');
+Route::get('/carritos', 'CarritosController@list');
+
 
 Route::get('/producto/{id}', 'ProductosController@buscar');
 Route::get('/categoria/{id}', 'CategoriasController@buscar');
@@ -32,3 +34,6 @@ Route::get('/productos/{id}/edit','ProductosController@edit')->middleware("auth"
 Route::put('/productos/{id}','ProductosController@update')->middleware("auth");
 
 Route::delete('/deleteProducto', 'ProductosController@delete')->middleware("auth");
+
+// Route::get('/carritos/add','CarritosController@vista')->middleware("auth");
+Route::post('/carritos/add','CarritosController@agregar')->middleware("auth");

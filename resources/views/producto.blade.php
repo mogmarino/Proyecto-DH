@@ -12,27 +12,35 @@
     <h3>Producto</h3>
     <h6>{{$producto->nombre}}</h6>
     @if (Auth::check())
-     <div class="mt-4">
-       <a href="/productos/{{$producto->id}}/edit">
-         <button type="submit" name="button" class="btn btn-lg btn-primary">
-           Editar
-         </button>
-       </a>
+      <div class="row">
+        <div class="mt-4 col-5">
+          <a href="/productos/{{$producto->id}}/edit">
+            <button type="submit" name="button" class="btn btn-lg btn-outline-primary">
+              Editar
+            </button>
+          </a>
 
-       <form class="mt-2 mb-2" action="/deleteProducto" method="post">
-         {{csrf_field()}}
-         {{method_field('DELETE')}}
+          <form class="mt-2 mb-2" action="/deleteProducto" method="post">
+            {{csrf_field()}}
+            {{method_field('DELETE')}}
 
-         <input type="hidden" name="id" value="{{$producto->id}}">
-         <button type="submit" name="button" class="btn btn-lg btn-danger">
-           Eliminar
-         </button>
-       </form>
-
-     </div>
-
-
-
+            <input type="hidden" name="id" value="{{$producto->id}}">
+            <button type="submit" name="button" class="btn btn-lg btn-outline-danger">
+              Eliminar
+            </button>
+          </form>
+        </div>
+        <div class="col-5 mt-4">
+          <form class="" action="/carritos/add" method="post">
+            @csrf
+            <input type="hidden" name="id" value="{{$producto->id}}">
+            <button type="submit" name="button" class="btn btn-lg btn-outline-success">
+              Agregar
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </form>
+        </div>
+      </div>
 
     @endif
 
@@ -40,8 +48,14 @@
   </div>
   <ul>
 
-      <li>
-        <a href="{{$producto->avatar}}">Avatar</a>
+      <li class="img">
+        <div class="img-prod">
+          @if ($ext === "")
+            <img  src="/img/producto.png" alt="imagen">
+          @else
+            <img  src="/storage/{{$producto->avatar}}" alt="">
+          @endif
+        </div>
 
       </li>
       <li>
