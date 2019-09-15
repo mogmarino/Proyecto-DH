@@ -5,6 +5,7 @@
 @endsection
 @section('css')
   <link rel="stylesheet" href="/css/producto.css">
+  <link rel="shortcut icon" href="/img/puppy_icon.ico"/>
 @endsection
 
 @section('main')

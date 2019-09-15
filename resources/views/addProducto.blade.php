@@ -2,6 +2,7 @@
 
 @section('titulo')
   Agregar Producto
+  <link rel="shortcut icon" href="/img/puppy_icon.ico"/>
 @endsection
 
 @section('main')

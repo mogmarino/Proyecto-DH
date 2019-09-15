@@ -2,6 +2,7 @@
 
 @section('titulo')
   Categorias
+  <link rel="shortcut icon" href="/img/puppy_icon.ico"/>
 @endsection
 
 @section('main')

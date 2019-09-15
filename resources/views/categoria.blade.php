@@ -2,6 +2,7 @@
 
 @section('titulo')
   Categoria {{$categoria->nombre}}
+  <link rel="shortcut icon" href="/img/puppy_icon.ico"/>
 @endsection
 
 @section('main')
